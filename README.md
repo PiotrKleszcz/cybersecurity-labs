@@ -1,19 +1,23 @@
-# cybersecurity-labs
+# Cybersecurity Labs
 
-Hands-on cybersecurity labs using Kali Linux tools
+This repository documents my hands-on cybersecurity lab focused on network pentesting.
 
 ## Lab Environment
-
-Virtual machines used in the lab:
-
-Attacker:
-- Kali Linux
-
-Targets:
-- Fedora Linux Workstation
+- Kali Linux (attacker)
+- Windows 11
+- Fedora Linux
 - Fedora Server
 - Ubuntu Server
-- Windows 11
 
-Network:
-VMware NAT network (192.168.253.0/24)
+## Scope
+Internal network: 192.168.253.0/24
+
+## Methodology
+1. Discovery
+2. Enumeration
+3. Vulnerability Scanning
+4. Exploitation (in progress)
+
+## Tools
+- Nmap
+- VMware
