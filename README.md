@@ -15,9 +15,12 @@ Internal network: 192.168.253.0/24
 ## Methodology
 1. Discovery
 2. Enumeration
-3. Vulnerability Scanning
+3. Network diagram
 4. Exploitation (in progress)
 
 ## Tools
 - Nmap
 - VMware
+
+## Goal
+To build practical skills in real-world pentesting scenarios.
