@@ -39,7 +39,7 @@ Cowrie honeypot is installed and configured on Ubuntu Server.
 
 📸 **SCREENSHOT**
 
-![Honeypot Cowrie](screenshots/environment-cleanup.png)
+![Honeypot Cowrie](screenshots/phase1-setup/environment-cleanup.png)
 
 * System ready before installation
 
@@ -62,7 +62,7 @@ cd cowrie
 
 📸 **SCREENSHOT**
 
-![Honeypot Cowrie](screenshots/git-clone-cowrie.png)
+![Honeypot Cowrie](screenshots/phase1-setup/git-clone-cowrie.png)
 
 
 ### 🔹 Step 2 — Create Virtual Environment
@@ -74,8 +74,8 @@ source cowrie-env/bin/activate
 
 📸 **SCREENSHOT**
 
-![Honeypot Cowrie](screenshots/python3-venv.png)
-![Honeypot Cowrie](screenshots/cowrie-env.png)
+![Honeypot Cowrie](screenshots/phase1-setup/python3-venv.png)
+![Honeypot Cowrie](screenshots/phase1-setup/cowrie-env.png)
 
 * Active `(cowrie-env)` environment
 
@@ -90,7 +90,7 @@ python3 -m pip install -r requirements.txt
 
 📸 **SCREENSHOT**
 
-![Honeypot Cowrie](screenshots/install-dependencies.png)
+![Honeypot Cowrie](screenshots/phase1-setup/install-dependencies.png)
 
 * Dependencies installed successfully
 
@@ -104,7 +104,7 @@ cp etc/cowrie.cfg.dist etc/cowrie.cfg
 
 📸 **SCREENSHOT**
 
-![Honeypot Cowrie](screenshots/config-file.png)
+![Honeypot Cowrie](screenshots/phase1-setup/config-file.png)
 
 * Configuration file created
 
@@ -118,7 +118,7 @@ bin/cowrie start -n
 
 📸 **SCREENSHOT (KEY)**
 
-![Honeypot Cowrie](screenshots/cowrie-start.png)
+![Honeypot Cowrie](screenshots/phase1-setup/cowrie-start.png)
 
 * Cowrie running successfully
 
@@ -134,7 +134,7 @@ ssh root@<UBUNTU_IP> -p 2222
 
 📸 **SCREENSHOT**
 
-![Honeypot Cowrie](screenshots/cowrie-login.png)
+![Honeypot Cowrie](screenshots/phase1-setup/cowrie-login.png)
 
 * Unauthorized login attempt
 
@@ -148,7 +148,7 @@ tail -f /opt/cowrie/var/log/cowrie/cowrie.log
 
 📸 **SCREENSHOT (GOLD)**
 
-![Honeypot Cowrie](screenshots/live-logs.png)
+![Honeypot Cowrie](screenshots/phase1-setup/live-logs.png)
 
 * Captured attacker activity
 
@@ -176,6 +176,8 @@ tail -f /opt/cowrie/var/log/cowrie/cowrie.log
 ```
 honeypot-cowrie/
 ├── screenshots/
+│   ├── phase1-setup/
+│   └── phase2-hydra/
 └── README.md
 ```
 
@@ -193,4 +195,10 @@ All attacks were simulated for educational purposes only.
 * Perform brute-force attack using Hydra
 * Analyze advanced logs
 * Integrate with SIEM tools
+
+---
+
+## 💣 Hydra Attack Simulation
+
+
 
