@@ -200,5 +200,59 @@ All attacks were simulated for educational purposes only.
 
 ## 💣 Hydra Attack Simulation
 
+### 🔹 Step 6 — Brute-Force Attack from Kali
+
+```bash
+hydra -l root -P /usr/share/wordlists/rockyou.txt -s 2222 ssh://192.168.253.152 -t 4 -V
+```
+
+📸 **SCREENSHOT (GOLD)**
+
+![Honeypot Cowrie](screenshots/phase2-hydra/hydra-attack.png)
+
+* Hydra found 3 valid passwords in 2 seconds
+
+---
+
+### 🔹 Step 7 — Verify Captured Credentials (Ubuntu)
+
+```bash
+grep "login attempt" /opt/cowrie/var/log/cowrie/cowrie.log | tail -20
+```
+
+📸 **SCREENSHOT (GOLD)**
+
+![Honeypot Cowrie](screenshots/phase2-hydra/login-attempt.png)
+
+* Cowrie captured all 4 login attempts from attacker IP 192.168.253.141
+* 3 successful logins recorded: `12345`, `password`, `123456789`
+
+---
+
+## 🧾 Key Findings
+
+* Attacker IP recorded: `192.168.253.141`
+* 4 login attempts captured by Cowrie
+* 3 valid passwords found: `12345`, `password`, `123456789`
+* Attack duration: 2 seconds
+* All credentials logged with timestamp
+
+---
+
+## 🧠 Lessons Learned
+
+* Honeypots provide valuable insight into attacker behavior
+* Even simple setups can capture meaningful data
+* Hydra can crack weak passwords in seconds
+* Cowrie logs every attempt with full credentials and timestamps
+* Proper documentation is critical in cybersecurity projects
+
+---
+
+
+
+
+
+
 
 
