@@ -16,7 +16,7 @@ Internal network: 192.168.253.0/24
 1. Discovery
 2. Enumeration
 3. Network diagram
-4. Exploitation (in progress)
+4. Exploitation
 
 ## Tools
 - Nmap

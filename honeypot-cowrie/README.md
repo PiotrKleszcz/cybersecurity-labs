@@ -51,7 +51,7 @@ Used to simulate attacks against the honeypot.
 
 ---
 
-## 🚀 Installation Steps (Ubuntu)
+## 🚀 Phase 1 Set up (Ubuntu)
 
 ### 🔹 Step 1 — Clone Repository
 
@@ -177,7 +177,8 @@ tail -f /opt/cowrie/var/log/cowrie/cowrie.log
 honeypot-cowrie/
 ├── screenshots/
 │   ├── phase1-setup/
-│   └── phase2-hydra/
+│   ├── phase2-hydra/
+│   └── phase3-elk/
 └── README.md
 ```
 
@@ -190,11 +191,9 @@ All attacks were simulated for educational purposes only.
 
 ---
 
-## 🚀 Next Steps
+## 🚀 Phase 2 Hydra
 
 * Perform brute-force attack using Hydra
-* Analyze advanced logs
-* Integrate with SIEM tools
 
 ---
 
@@ -234,7 +233,6 @@ grep "login attempt" /opt/cowrie/var/log/cowrie/cowrie.log | tail -20
 * Attacker IP recorded: `192.168.253.141`
 * 4 login attempts captured by Cowrie
 * 3 valid passwords found: `12345`, `password`, `123456789`
-* Attack duration: 2 seconds
 * All credentials logged with timestamp
 
 ---
@@ -249,10 +247,214 @@ grep "login attempt" /opt/cowrie/var/log/cowrie/cowrie.log | tail -20
 
 ---
 
+### 🚀 Phase 3 — Log Analysis with ELK Stack
 
+* Analyze Cowrie honeypot logs using Elasticsearch and Kibana
+* Visualize attacker behavior, captured credentials and session data
 
+---
 
+## 📊 Log Analysis — ELK Stack (Elasticsearch + Kibana)
 
+### 🔹 Step 8 — Install Elasticsearch (Ubuntu)
+
+Add GPG key and repository:
+
+```bash
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/8.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-8.x.list
+```
+
+Install Elasticsearch:
+
+```bash
+sudo apt update && sudo apt install elasticsearch -y
+```
+
+📸 **SCREENSHOT**
+
+![Elasticsearch](screenshots/phase3-elk/elasticsearch-install.png)
+
+* Elasticsearch 8.19.15 installed and running on ARM64
+
+Enable and start service:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable elasticsearch.service
+sudo systemctl start elasticsearch.service
+sudo systemctl status elasticsearch.service
+```
+
+📸 **SCREENSHOT**
+
+![Elasticsearch](screenshots/phase3-elk/elasticsearch-status.png)
+
+* Elasticsearch status active (running)
+
+---
+
+### 🔹 Step 9 — Install Kibana (Ubuntu)
+
+```bash
+sudo apt install kibana -y
+```
+
+📸 **SCREENSHOT**
+
+![Kibana](screenshots/phase3-elk/kibana-install.png)
+
+* Kibana installed successfully
+
+Enable and start service:
+
+```bash
+sudo systemctl enable kibana.service
+sudo systemctl start kibana.service
+sudo systemctl status kibana.service
+```
+
+📸 **SCREENSHOT**
+
+![Kibana](screenshots/phase3-elk/kibana-status.png)
+
+* Kibana status active (running)
+
+---
+
+### 🔹 Step 10 — Install and Configure Filebeat (Ubuntu)
+
+```bash
+sudo apt install filebeat -y
+```
+
+📸 **SCREENSHOT**
+
+![Filebeat](screenshots/phase3-elk/filebeat-install.png)
+
+Edit `/etc/filebeat/filebeat.yml`:
+* Set input path to `/opt/cowrie/var/log/cowrie/cowrie.json`
+* Enable JSON parser
+
+Enable and start service:
+
+```bash
+sudo systemctl enable filebeat
+sudo systemctl start filebeat
+sudo systemctl status filebeat
+```
+
+📸 **SCREENSHOT**
+
+![Filebeat](screenshots/phase3-elk/filebeat-status.png)
+
+* Filebeat status active (running) — forwarding Cowrie logs to Elasticsearch
+
+Verify logs indexed in Elasticsearch:
+
+```bash
+curl -k -u elastic:xkbKf7op=kzYbBev_4-L https://localhost:9200/_cat/indices?v
+```
+
+📸 **SCREENSHOT**
+
+![Filebeat Index](screenshots/phase3-elk/filebeat-index.png)
+
+* 24 log events successfully indexed in Elasticsearch (including login attempts, command execution, and session activity)
+
+---
+
+### 🔹 Step 11 — Visualize in Kibana Dashboard
+
+Access Kibana at `http://localhost:5601`
+
+📸 **SCREENSHOT**
+
+![Kibana Login](screenshots/phase3-elk/kibana-login.png)
+
+* Kibana login page
+
+Configure enrollment token and connect to Elasticsearch:
+
+📸 **SCREENSHOT**
+
+![Kibana Config](screenshots/phase3-elk/kibana-config.png)
+
+* Kibana successfully connected to Elasticsearch
+
+📸 **SCREENSHOT**
+
+![Kibana Home](screenshots/phase3-elk/kibana-home.png)
+
+* Kibana home page — ELK Stack ready for log analysis
+
+Create data view `Cowrie Honeypot Logs` with index pattern `filebeat-*`:
+
+📸 **SCREENSHOT**
+
+![Kibana Discover](screenshots/phase3-elk/kibana-discover.png)
+
+* 24 Cowrie log events visible in Kibana Discover
+* Fields captured: `eventid`, `dst_ip`, `duration`, `hassh`, `cowrie.login.success`
+
+Create dashboard with Bar chart visualization — `eventid` vs `Count of records`:
+
+📸 **SCREENSHOT (GOLD)**
+
+![Kibana Dashboard](screenshots/phase3-elk/kibana-dashboard.png)
+
+* Cowrie Honeypot Dashboard — attack activity fully visualized
+* Events captured: `cowrie.login.success`, `cowrie.session.connect`, `cowrie.session.closed`
+
+---
+
+## 🧾 Key Findings — Phase 3 (ELK Integration)
+
+* Successful integration of Cowrie honeypot with the ELK Stack enabled real-time log collection and analysis
+* Filebeat correctly parsed structured JSON logs and forwarded them to Elasticsearch without data loss
+* Multiple event types were captured from a single attacker session, including:
+* cowrie.session.connect
+* cowrie.login.success
+* cowrie.command.input
+* cowrie.session.closed
+* Elasticsearch indexed all events efficiently, allowing fast querying and filtering
+* Kibana provided clear visibility into attacker behavior through searchable logs and visual dashboards
+
+Attack simulation from Kali Linux confirmed full end-to-end data flow:
+Attacker → Cowrie → Filebeat → Elasticsearch → Kibana
+
+---
+
+## 🔍 Security Insights
+
+* Even a simple SSH interaction generates rich telemetry useful for threat analysis
+* Captured credentials (e.g. root:1234) demonstrate how attackers attempt weak/default logins
+* Session tracking allows reconstruction of attacker actions step-by-step
+* Event-based logging (instead of raw logs) enables precise filtering and detection use cases
+
+---
+
+## 📊 Operational Observations
+
+* Filebeat uses data streams (.ds-filebeat-*) instead of classic indices — modern Elastic approach
+* Single session can generate multiple log events, improving visibility but increasing data volume
+* Default Kibana dashboards can be extended to build custom threat hunting views
+
+---
+
+## 🧠 Lessons Learned
+
+* Proper log pipeline configuration is critical — small misconfigurations break visibility completely
+* Understanding log structure (eventid, JSON parsing) is key for effective analysis
+* ELK Stack provides powerful capabilities even in a small lab environment
+* Honeypots are not just traps — they are valuable intelligence sources
+
+---
+
+## 🚀 Phase 3 Summary
+
+* The ELK integration phase successfully transformed raw Cowrie logs into structured, searchable, and visualized security data.
+* The environment now supports basic threat monitoring, attacker behavior analysis, and log-driven investigation workflows.
 
 
 
