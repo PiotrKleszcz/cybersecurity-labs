@@ -6,15 +6,15 @@ This lab runs entirely inside **VMware Fusion** on macOS. All machines operate o
 
 ## Network
 
-| Network | Address |
-|---|---|
-| Subnet | 192.168.253.0/24 |
-| Type | VMware Fusion – Host-Only |
-| Internet access | Attack machine only |
+|     Network     |          Address          |
+|-----------------|---------------------------|
+| Subnet          | 192.168.253.0/24          |
+| Type            | VMware Fusion – Host-Only |
+| Internet access | Attack machine only       |
 
 ## Machines
 
-| Role     | OS             | IP Address      | Hostname |
+|   Role   |       OS       |    IP Address   | Hostname |
 |----------|----------------|-----------------|----------|
 | Attack   | Kali Linux     | 192.168.253.141 | kalilx   |
 | Target 1 | Ubuntu Server  | 192.168.253.152 | ubuntu   |

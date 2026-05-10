@@ -35,8 +35,8 @@ A step-by-step exploration of password cracking techniques — from basic Python
 
 |                                Phase                                   |                        Topic                        |     Status     |
 |------------------------------------------------------------------------|-----------------------------------------------------|----------------|
-| [Phase 1 – Setup & Hash Basics](./phase-1-setup/)                      | Environment setup, hash types, first Python cracker | 🔄 In progress |
-| [Phase 2 – Dictionary & Brute Force](./phase-2-dictionary-bruteforce/) | Wordlist attacks, brute force logic, rockyou.txt    | ⏳ Planned     |
+| [Phase 1 – Setup & Hash Basics](./phase-1-setup/)                      | Environment setup, hash types, first Python cracker | ✅ Completed   |
+| [Phase 2 – Dictionary & Brute Force](./phase-2-dictionary-bruteforce/) | Wordlist attacks, brute force logic, rockyou.txt    | ✅ Completed   |
 | [Phase 3 – Hashcat & John the Ripper](./phase-3-hashcat-john/)         | Real-world GPU/CPU cracking tools                   | ⏳ Planned     |    
 | [Phase 4 – Network Services](./phase-4-network-services/)              | SSH brute-force, HTTP basic auth, countermeasures   | ⏳ Planned     |
 
