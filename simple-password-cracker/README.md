@@ -19,13 +19,13 @@ A step-by-step exploration of password cracking techniques — from basic Python
 
 ## Lab Environment
 
-|  Machine |      OS       |  IP Address   |          Role          |
-|----------|---------------|---------------|------------------------|
-| Attack   | Kali Linux    | 192.168.253.x | Scripts, tools, GitHub |
-| Target 1 | Windows 11    | 192.168.253.x | SAM hash extraction    |
-| Target 2 | Fedora Linux  | 192.168.253.x | /etc/shadow hashes     |
-| Target 3 | Fedora Server | 192.168.253.x | SSH / HTTP brute-force |
-| Target 4 | Ubuntu Server | 192.168.253.x | MySQL / web login      |
+|  Machine |      OS       |   IP Address    |          Role          |
+|----------|---------------|-----------------|------------------------|
+| Attack   | Kali Linux    | 192.168.253.141 | Scripts, tools, GitHub |
+| Target 1 | Windows 11    | 192.168.253.136 | SAM hash extraction    |
+| Target 2 | Fedora Linux  | 192.168.253.148 | /etc/shadow hashes     |
+| Target 3 | Fedora Server | 192.168.253.149 | SSH / HTTP brute-force |
+| Target 4 | Ubuntu Server | 192.168.253.152 | MySQL / web login      |
 
 > Network: `192.168.253.0/24` – VMware Fusion host-only, isolated from the internet.
 
@@ -33,12 +33,12 @@ A step-by-step exploration of password cracking techniques — from basic Python
 
 ## Project Phases
 
-|                                Phase                                   |                        Topic                        |     Status     |
-|------------------------------------------------------------------------|-----------------------------------------------------|----------------|
-| [Phase 1 – Setup & Hash Basics](./phase-1-setup/)                      | Environment setup, hash types, first Python cracker | ✅ Completed   |
-| [Phase 2 – Dictionary & Brute Force](./phase-2-dictionary-bruteforce/) | Wordlist attacks, brute force logic, rockyou.txt    | ✅ Completed   |
-| [Phase 3 – Hashcat & John the Ripper](./phase-3-hashcat-john/)         | Real-world GPU/CPU cracking tools                   | ⏳ Planned     |    
-| [Phase 4 – Network Services](./phase-4-network-services/)              | SSH brute-force, HTTP basic auth, countermeasures   | ⏳ Planned     |
+|                                 Phase                                   |                        Topic                        |
+|-------------------------------------------------------------------------|-----------------------------------------------------|
+| [Phase 1 – Setup & Hash Basics](./phase-1-setup/)                       | Environment setup, hash types, first Python cracker |
+| [Phase 2 – Dictionary & Brute Force]](./phase-2-dictionary-bruteforce/) | Wordlist attacks, brute force logic, rockyou.txt    |
+| [Phase 3 – Hashcat & John the Ripper](./phase-3-hashcat-john/)          | Real-world GPU/CPU cracking tools                   |   
+| [Phase 4 – Network Services](./phase-4-network-services/)               | SSH brute-force, HTTP basic auth, countermeasures   |
 
 ---
 
