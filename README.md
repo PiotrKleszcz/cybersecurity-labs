@@ -4,10 +4,9 @@ This repository documents my hands-on cybersecurity lab focused on network pente
 
 ## Lab Environment
 - Kali Linux (attacker)
-- Windows 11
+- Windows 11 Pro
 - Fedora Linux
-- Fedora Server
-- Ubuntu Server
+- Ubuntu Desktop
 
 ## Scope
 Internal network: 192.168.253.0/24
