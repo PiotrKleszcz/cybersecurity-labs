@@ -1,0 +1,7 @@
+May 29 08:45:10 kali sshd[1234]: Failed password for invalid user admin from 192.168.253.150 port 49152 ssh2
+May 29 08:45:12 kali sshd[1234]: Failed password for invalid user admin from 192.168.253.150 port 49153 ssh2
+May 29 08:45:15 kali sshd[1234]: Failed password for invalid user admin from 192.168.253.150 port 49154 ssh2
+May 29 08:45:18 kali sshd[1234]: Failed password for invalid user root from 192.168.253.150 port 49155 ssh2
+May 29 08:45:20 kali sshd[1234]: Failed password for invalid user root from 192.168.253.150 port 49156 ssh2
+May 29 08:45:25 kali sshd[1234]: Accepted password for root from 192.168.253.150 port 49157 ssh2
+May 29 08:46:02 kali sshd[1234]: session opened for user root by (uid=0)
