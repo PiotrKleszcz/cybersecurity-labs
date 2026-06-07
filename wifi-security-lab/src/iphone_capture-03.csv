@@ -1,0 +1,7 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+CE:C9:0C:33:0D:12, 2026-06-06 09:22:16, 2026-06-06 09:24:45,  6, 130, WPA2, CCMP, PSK, -20,     1390,      151,   0.  0.  0.  0,  18, Fifth Ace Hotspot , 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+0C:96:E6:43:F1:DB, 2026-06-06 09:22:18, 2026-06-06 09:23:19, -41,     1443, CE:C9:0C:33:0D:12,
+
