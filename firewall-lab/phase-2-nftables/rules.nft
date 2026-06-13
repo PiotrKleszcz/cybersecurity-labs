@@ -1,0 +1,27 @@
+#!/usr/sbin/nft -f
+# nftables firewall rules - Phase 2
+# Target: Ubuntu Desktop 192.168.253.142
+
+flush ruleset
+
+table ip filter {
+    chain INPUT {
+        type filter hook input priority 0; policy drop;
+
+        # Allow established/related connections
+        ct state established,related accept
+
+        # Allow loopback
+        iif lo accept
+
+        # Allow DNS
+        udp dport 53 accept
+        tcp dport 53 accept
+
+        # Allow SSH
+        tcp dport 22 accept
+
+        # Allow HTTP
+        tcp dport 80 accept
+    }
+}
