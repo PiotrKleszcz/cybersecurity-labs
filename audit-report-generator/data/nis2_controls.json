@@ -1,0 +1,46 @@
+{
+  "directive": "Directive (EU) 2022/2555 (NIS2)",
+  "article": "Article 21 — Cybersecurity risk-management measures",
+  "controls": {
+    "Article 21(2)(a)": {
+      "title": "Risk analysis and information system security policies",
+      "description": "Policies on risk analysis and information system security, including identification and assessment of cybersecurity risks."
+    },
+    "Article 21(2)(b)": {
+      "title": "Incident handling",
+      "description": "Incident handling including procedures for detection, analysis, containment, and recovery."
+    },
+    "Article 21(2)(c)": {
+      "title": "Business continuity and crisis management",
+      "description": "Business continuity, such as backup management, disaster recovery, and crisis management."
+    },
+    "Article 21(2)(d)": {
+      "title": "Supply chain security",
+      "description": "Security in supply chain including security-related aspects concerning the relationships between each entity and its direct suppliers or service providers."
+    },
+    "Article 21(2)(e)": {
+      "title": "Network and information systems security",
+      "description": "Security in network and information systems acquisition, development and maintenance, including vulnerability handling and disclosure."
+    },
+    "Article 21(2)(f)": {
+      "title": "Effectiveness of cybersecurity risk-management measures",
+      "description": "Policies and procedures to assess the effectiveness of cybersecurity risk-management measures."
+    },
+    "Article 21(2)(g)": {
+      "title": "Cyber hygiene and cybersecurity training",
+      "description": "Basic cyber hygiene practices and cybersecurity training, including employee awareness."
+    },
+    "Article 21(2)(h)": {
+      "title": "Cryptography and encryption",
+      "description": "Policies and procedures regarding the use of cryptography and, where appropriate, encryption."
+    },
+    "Article 21(2)(i)": {
+      "title": "Human resources security and access control",
+      "description": "Human resources security, access control policies and asset management."
+    },
+    "Article 21(2)(j)": {
+      "title": "Multi-factor authentication",
+      "description": "The use of multi-factor authentication or continuous authentication solutions, secured voice, video and text communications, and secured emergency communication systems within the entity where appropriate."
+    }
+  }
+}

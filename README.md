@@ -8,6 +8,7 @@ Hands-on cybersecurity labs documenting real-world attack and defense scenarios 
 
 | Project | Description | Tools | Status |
 |---|---|---|---|
+| [audit-report-generator](./audit-report-generator) | Automated network audit — Nmap scan, CVSS scoring, NIS2 Article 21 mapping, PDF report generation | Python, Nmap, ReportLab | ✅ Complete |
 | [honeypot-cowrie](./honeypot-cowrie) | SSH honeypot deployment + Hydra brute-force + ELK Stack log analysis | Cowrie, Hydra, Elasticsearch, Kibana, Filebeat | ✅ Complete |
 | [wifi-security-lab](./wifi-security-lab) | WPA2 handshake capture + GPU password cracking + PMKID attempt | Aircrack-ng, Hashcat, hcxdumptool, Alfa AWUS036ACH | ✅ Complete |
 | [network-pentest-lab](./network-pentest-lab) | Internal network pentest — discovery, enumeration, SSH analysis | Nmap, VMware | ✅ Complete |
