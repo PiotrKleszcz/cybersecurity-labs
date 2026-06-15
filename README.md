@@ -22,7 +22,30 @@ Hands-on cybersecurity labs documenting real-world attack and defense scenarios 
 
 ---
 
+## 🔐 NIS2 Article 21 Mapping
+
+Each lab maps to specific NIS2 security requirements, demonstrating practical compliance controls for SMEs.
+
+| Lab | NIS2 Article 21 Control | Category |
+|-----|--------------------------|----------|
+| [audit-report-generator](./audit-report-generator) | Risk assessment & vulnerability identification | Risk Management |
+| [honeypot-cowrie](./honeypot-cowrie) | Incident detection & monitoring | Incident Handling |
+| [wifi-security-lab](./wifi-security-lab) | Network security & access control | Network Security |
+| [network-pentest-lab](./network-pentest-lab) | Vulnerability handling & penetration testing | Vulnerability Management |
+| [nmap-network-scan](./nmap-network-scan) | Asset inventory & network discovery | Risk Management |
+| [digital-forensics-lab](./digital-forensics-lab) | Incident response & forensic analysis | Incident Handling |
+| [file-encryption-lab](./file-encryption-lab) | Encryption of data in transit and at rest | Encryption |
+| [phishing-awareness-lab](./phishing-awareness-lab) | Security awareness training | Human Risk |
+| [netsniff](./netsniff) | Network traffic monitoring & anomaly detection | Network Security |
+| [simple-password-cracker](./simple-password-cracker) | Access control & authentication testing | Access Control |
+| [basic-keylogger](./basic-keylogger) | Endpoint threat simulation & detection | Vulnerability Management |
+
+> This repository supports NIS2 compliance readiness for SMEs by demonstrating real-world implementation of Article 21 security measures.
+
+---
+
 ## 🖥️ Lab Environment
+
 
 | Role | System | IP | Purpose |
 |---|---|---|---|
